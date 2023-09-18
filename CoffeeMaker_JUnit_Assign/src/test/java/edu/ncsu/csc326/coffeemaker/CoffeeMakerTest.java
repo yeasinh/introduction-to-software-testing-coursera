@@ -399,6 +399,20 @@ public class CoffeeMakerTest {
 		coffeeMaker.addRecipe(recipe1);
 		assertEquals(25, coffeeMaker.makeCoffee(0, 75));
 	}
+	
+	/**
+	 * Given a coffee maker with 3 valid recipes
+	 * When we make coffee, selecting the 1st recipe and paying the exact 
+	 * 		amount the coffee costs
+	 * Then we get the nothing back.
+	 */
+	@Test
+	public void testMakeCoffeeMultiple() {
+		coffeeMaker.addRecipe(recipe1);
+		coffeeMaker.addRecipe(recipe2);
+		coffeeMaker.addRecipe(recipe3);
+		assertEquals(0, coffeeMaker.makeCoffee(0, 50));
+	}
 
 	/**
 	 * Given a coffee maker with 3 valid recipes
@@ -428,70 +442,6 @@ public class CoffeeMakerTest {
 		assertEquals(5, coffeeMaker.makeCoffee(1, 5));
 	}
 
-	/**
-	 * Given a coffee maker with 3 valid recipes
-	 * When we make coffee, selecting the 1st recipe and paying the exact 
-	 * 		amount the coffee costs
-	 * Then we get the nothing back.
-	 */
-	@Test
-	public void testMakeCoffeeMultiple() {
-		coffeeMaker.addRecipe(recipe1);
-		coffeeMaker.addRecipe(recipe2);
-		coffeeMaker.addRecipe(recipe3);
-		assertEquals(0, coffeeMaker.makeCoffee(0, 50));
-	}
-
-
-	/**
-	 * Given a coffee maker with 3 valid recipes
-	 * When we make coffee, selecting the 2nd recipe which requires (20,3,1,1)
-	 * 		with the default inventory (15, 15, 15, 15)
-	 * Then we get the money back.
-	 */
-	@Test
-	public void testMakeCoffeeInventoryFalse() {
-		coffeeMaker.addRecipe(recipe1);
-		coffeeMaker.addRecipe(recipe2);
-		coffeeMaker.addRecipe(recipe3);
-		assertEquals(100, coffeeMaker.makeCoffee(1, 100));
-	}
-
-	/**
-	 * Given a coffee maker with 3 valid recipes
-	 * When we make coffee, selecting the valid recipe which requires (4,0,30,1)
-	 * 		with the default inventory (15, 15, 15, 15)
-	 * Then we get the money back.
-	 */
-	@Test
-	public void testMakeCoffeeInventoryFalse6() {
-		coffeeMaker.addRecipe(recipe6);
-		assertEquals(100, coffeeMaker.makeCoffee(0, 100));
-	}
-
-	/**
-	 * Given a coffee maker with 3 valid recipes
-	 * When we make coffee, selecting the valid recipe which requires (4,30,0,1)
-	 * 		with the default inventory (15, 15, 15, 15)
-	 * Then we get the money back.
-	 */
-	@Test
-	public void testMakeCoffeeInventoryFalse7() {
-		coffeeMaker.addRecipe(recipe7);
-		assertEquals(100, coffeeMaker.makeCoffee(0, 100));
-	}
-
-	/**
-	 * Given a coffee maker with 3 valid recipes
-	 * When we make coffee, selecting the valid recipe which requires (4,0,1,30)
-	 * 		with the default inventory (15, 15, 15, 15)
-	 * Then we get the money back.
-	 */
-	@Test
-	public void testMakeCoffeeInventoryFalse2() {
-		coffeeMaker.addRecipe(recipe5);
-		assertEquals(100, coffeeMaker.makeCoffee(0, 100));
-	}
 
 	/**
 	 * Given a coffee maker with 3 valid recipes
@@ -508,6 +458,33 @@ public class CoffeeMakerTest {
 		coffeeMaker.addRecipe(recipe3);
 		assertEquals(25, coffeeMaker.makeCoffee(1, 100));
 	}
+	
+	/**
+	 * Given a coffee maker with 3 valid recipes
+	 * When we make coffee, selecting the 2nd recipe which requires (20,3,1,1)
+	 * 		with the default inventory (15, 15, 15, 15)
+	 * Then we get the money back.
+	 */
+	@Test
+	public void testMakeCoffeeInventoryFalse1() {
+		coffeeMaker.addRecipe(recipe1);
+		coffeeMaker.addRecipe(recipe2);
+		coffeeMaker.addRecipe(recipe3);
+		assertEquals(100, coffeeMaker.makeCoffee(1, 100));
+	}
+
+	/**
+	 * Given a coffee maker with 3 valid recipes
+	 * When we make coffee, selecting the valid recipe which requires (4,0,1,30)
+	 * 		with the default inventory (15, 15, 15, 15)
+	 * Then we get the money back.
+	 */
+	@Test
+	public void testMakeCoffeeInventoryFalse2() {
+		coffeeMaker.addRecipe(recipe5);
+		assertEquals(100, coffeeMaker.makeCoffee(0, 100));
+	}
+
 
 	/**
 	 * Given a coffee maker with no valid recipes
@@ -541,7 +518,29 @@ public class CoffeeMakerTest {
 		assertEquals(100, coffeeMaker.makeCoffee(10, 100));
 	}
 
+	/**
+	 * Given a coffee maker with 3 valid recipes
+	 * When we make coffee, selecting the valid recipe which requires (4,0,30,1)
+	 * 		with the default inventory (15, 15, 15, 15)
+	 * Then we get the money back.
+	 */
+	@Test
+	public void testMakeCoffeeInventoryFalse6() {
+		coffeeMaker.addRecipe(recipe6);
+		assertEquals(100, coffeeMaker.makeCoffee(0, 100));
+	}
 
+	/**
+	 * Given a coffee maker with 3 valid recipes
+	 * When we make coffee, selecting the valid recipe which requires (4,30,0,1)
+	 * 		with the default inventory (15, 15, 15, 15)
+	 * Then we get the money back.
+	 */
+	@Test
+	public void testMakeCoffeeInventoryFalse7() {
+		coffeeMaker.addRecipe(recipe7);
+		assertEquals(100, coffeeMaker.makeCoffee(0, 100));
+	}
 
 	/** UC2: ADD RECIPE */
 
